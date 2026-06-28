@@ -1,0 +1,59 @@
+:root {
+  /* Brand palette */
+  --ink: #0a0806;
+  --ink-2: #100c08;
+  --ink-3: #15100a;
+  --cream: #f3ead9;
+  --dim: #a99e8c;
+  --dim-2: #6f6557;
+
+  --gold: #f4a13c;
+  --gold-hi: #ffce86;
+  --gold-lo: #c97a1e;
+  --violet: #8a6cff;
+  --violet-lo: #5b45c9;
+
+  --gold-grad: linear-gradient(135deg, var(--gold-lo), var(--gold) 45%, var(--gold-hi));
+  --gold-violet: linear-gradient(120deg, var(--gold) 0%, var(--gold-hi) 40%, var(--violet) 100%);
+
+  /* Surfaces */
+  --surface: rgba(255, 244, 224, 0.03);
+  --surface-2: rgba(255, 244, 224, 0.05);
+  --border: rgba(243, 234, 217, 0.1);
+  --border-hi: rgba(244, 161, 60, 0.35);
+
+  /* Typography */
+  --font-display: "Bricolage Grotesque", system-ui, sans-serif;
+  --font-body: "Manrope", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+
+  --text-xs: 0.78rem;
+  --text-sm: 0.92rem;
+  --text-base: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
+  --text-lg: clamp(1.2rem, 1rem + 0.8vw, 1.6rem);
+  --text-xl: clamp(1.8rem, 1.2rem + 2vw, 3rem);
+  --text-2xl: clamp(2.4rem, 1.4rem + 4vw, 5rem);
+  --text-hero: clamp(2.8rem, 1rem + 8vw, 8.5rem);
+
+  /* Spacing */
+  --space-section: clamp(5rem, 4rem + 6vw, 11rem);
+  --gutter: clamp(1.25rem, 0.5rem + 3vw, 4rem);
+  --maxw: 1240px;
+
+  /* Radius */
+  --r-sm: 10px;
+  --r-md: 16px;
+  --r-lg: 24px;
+  --r-xl: 32px;
+
+  /* Motion */
+  --dur-fast: 150ms;
+  --dur: 320ms;
+  --dur-slow: 640ms;
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+
+  /* Glows */
+  --glow-gold: 0 0 40px -8px rgba(244, 161, 60, 0.5);
+  --glow-violet: 0 0 50px -10px rgba(138, 108, 255, 0.5);
+}

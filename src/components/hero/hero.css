@@ -1,0 +1,135 @@
+.hero {
+  position: relative;
+  height: 420vh;
+  background: var(--ink);
+}
+
+.hero-sticky {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.hero-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.hero-loader {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(60% 50% at 50% 45%, rgba(244, 161, 60, 0.08), transparent 70%),
+    var(--ink);
+}
+.hero-loader::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 34px;
+  height: 34px;
+  margin: -17px 0 0 -17px;
+  border: 2px solid var(--border);
+  border-top-color: var(--gold);
+  border-radius: 50%;
+  animation: hero-spin 0.8s linear infinite;
+}
+@keyframes hero-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  pointer-events: none;
+}
+
+.hero-beat {
+  position: absolute;
+  width: min(92%, 980px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.1rem;
+  will-change: transform, opacity;
+}
+
+.hero-beat h1 {
+  font-size: var(--text-hero);
+  font-weight: 800;
+  text-wrap: balance;
+  text-shadow: 0 8px 40px rgba(0, 0, 0, 0.6);
+}
+
+.hero-mid {
+  font-size: var(--text-2xl);
+  font-weight: 800;
+  text-shadow: 0 8px 40px rgba(0, 0, 0, 0.6);
+}
+
+.hero-sub {
+  font-size: var(--text-lg);
+  color: var(--cream);
+  max-width: 46ch;
+  text-shadow: 0 4px 24px rgba(0, 0, 0, 0.7);
+}
+
+.hero-cue {
+  margin-top: 0.5rem;
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  letter-spacing: 0.2em;
+  color: var(--dim);
+  animation: hero-bob 1.8s ease-in-out infinite;
+}
+@keyframes hero-bob {
+  0%,
+  100% {
+    transform: translateY(0);
+    opacity: 0.6;
+  }
+  50% {
+    transform: translateY(6px);
+    opacity: 1;
+  }
+}
+
+/* Reduced-motion fallback */
+.hero--static {
+  position: relative;
+  height: auto;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+.hero-static-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.5;
+}
+.hero-static-copy {
+  position: relative;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  align-items: center;
+}
+.hero-static-copy h1 {
+  font-size: var(--text-2xl);
+  font-weight: 800;
+}

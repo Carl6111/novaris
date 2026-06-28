@@ -1,0 +1,56 @@
+.cta {
+  position: relative;
+  padding-block: calc(var(--space-section) * 1.2);
+  border-top: 1px solid var(--border);
+  overflow: hidden;
+}
+
+.cta-glow {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    50% 70% at 50% 50%,
+    rgba(244, 161, 60, 0.16),
+    transparent 70%
+  );
+  pointer-events: none;
+}
+
+.cta-inner {
+  position: relative;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+.cta-title {
+  font-size: var(--text-2xl);
+  font-weight: 800;
+  text-wrap: balance;
+}
+
+.cta-sub {
+  color: var(--dim);
+  font-size: var(--text-lg);
+  max-width: 48ch;
+}
+
+.cta-actions {
+  margin-top: 0.8rem;
+  display: flex;
+  align-items: center;
+  gap: 1.4rem;
+}
+
+.cta-call {
+  font-size: var(--text-sm);
+  color: var(--dim);
+  border-bottom: 1px solid var(--border-hi);
+  padding-bottom: 2px;
+  transition: color var(--dur) var(--ease-out-expo);
+}
+.cta-call:hover {
+  color: var(--cream);
+}
