@@ -11,7 +11,7 @@
   border-bottom: 1px solid transparent;
 }
 .nav--solid {
-  background: rgba(10, 8, 6, 0.72);
+  background: rgba(255, 255, 255, 0.82);
   backdrop-filter: blur(14px);
   border-bottom-color: var(--border);
 }

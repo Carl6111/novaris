@@ -20,7 +20,7 @@
 }
 .btn--primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 0 60px -6px rgba(244, 161, 60, 0.7);
+  box-shadow: 0 0 60px -6px rgba(58, 147, 255, 0.7);
 }
 
 .btn--ghost {

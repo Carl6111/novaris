@@ -122,11 +122,11 @@ export default function HeroScrub() {
       <section className="hero hero--static">
         <img src="/hero/frame-001.jpg" alt="" className="hero-static-img" />
         <div className="hero-static-copy wrap">
-          <p className="eyebrow">// Dein Betrieb. Jeden Tag.</p>
+          <p className="eyebrow">// Jeden Tag aufs Neue</p>
           <h1>
-            Hunderte Probleme im Unternehmen.
+            Hunderte Probleme. Ein Schreibtisch.
             <br />
-            <span className="gold-text">Eine Lösung. Ein System.</span>
+            <span className="gold-text">Ein System sortiert alles.</span>
           </h1>
           <p className="hero-sub">
             Anfragen, Doku, Rechnungen, Leads — alles auf einmal, alles von Hand.
@@ -144,8 +144,8 @@ export default function HeroScrub() {
 
         <div className="hero-overlay wrap">
           <Beat progress={scrollYProgress} range={[0, 0.18, 0.27, 0.34]} intro>
-            <p className="eyebrow">// Dein Betrieb. Jeden Tag.</p>
-            <h1>Hunderte Probleme im Unternehmen.</h1>
+            <p className="eyebrow">// Jeden Tag aufs Neue</p>
+            <h1>Hunderte Probleme. Ein Schreibtisch.</h1>
             <p className="hero-sub">
               Anfragen, Doku, Rechnungen, Leads — alles auf einmal, alles von
               Hand.
@@ -154,15 +154,15 @@ export default function HeroScrub() {
           </Beat>
 
           <Beat progress={scrollYProgress} range={[0.4, 0.5, 0.62, 0.7]}>
-            <h2 className="hero-mid gold-text">Eine Lösung.</h2>
+            <h2 className="hero-mid">
+              Ein System <span className="gold-text">übernimmt.</span>
+            </h2>
           </Beat>
 
           <Beat progress={scrollYProgress} range={[0.74, 0.84, 0.93, 1]}>
-            <h2 className="hero-mid">
-              Ein <span className="gold-text">System.</span>
-            </h2>
+            <h2 className="hero-mid gold-text">Alles sortiert.</h2>
             <p className="hero-sub">
-              Alles, was euer Betrieb täglich braucht — in eurer Hand.
+              Eure KI-Agenten ordnen, was euch täglich überrollt — automatisch.
             </p>
           </Beat>
         </div>

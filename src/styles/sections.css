@@ -37,13 +37,14 @@
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--r-lg);
+  box-shadow: var(--shadow-sm);
   transition:
     border-color var(--dur) var(--ease-out-expo),
     transform var(--dur) var(--ease-out-expo),
-    background var(--dur) var(--ease-out-expo);
+    box-shadow var(--dur) var(--ease-out-expo);
 }
 .card:hover {
   border-color: var(--border-hi);
-  background: var(--surface-2);
+  box-shadow: var(--shadow-ice);
   transform: translateY(-4px);
 }

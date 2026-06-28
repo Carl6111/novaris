@@ -1,26 +1,40 @@
 :root {
-  /* Brand palette */
-  --ink: #0a0806;
-  --ink-2: #100c08;
-  --ink-3: #15100a;
-  --cream: #f3ead9;
-  --dim: #a99e8c;
-  --dim-2: #6f6557;
+  /* Light ice-blue palette */
+  --paper: #f4f8fc;
+  --paper-2: #ffffff;
+  --paper-3: #e9f1fa;
 
-  --gold: #f4a13c;
-  --gold-hi: #ffce86;
-  --gold-lo: #c97a1e;
-  --violet: #8a6cff;
-  --violet-lo: #5b45c9;
+  --text: #0f1b2a;
+  --text-soft: #24405e;
+  --dim: #52627a;
+  --dim-2: #8595a8;
 
-  --gold-grad: linear-gradient(135deg, var(--gold-lo), var(--gold) 45%, var(--gold-hi));
-  --gold-violet: linear-gradient(120deg, var(--gold) 0%, var(--gold-hi) 40%, var(--violet) 100%);
+  --ice: #3a93ff;
+  --ice-hi: #8fd0ff;
+  --ice-lo: #1d6fd4;
+  --blue: #163a5f;
+
+  --ice-grad: linear-gradient(135deg, var(--ice-lo), var(--ice) 45%, var(--ice-hi));
+  --ice-blue-grad: linear-gradient(120deg, var(--ice) 0%, var(--ice-hi) 45%, var(--blue) 100%);
+
+  /* Legacy aliases — keep component CSS working after recolor */
+  --ink: var(--paper);
+  --ink-2: var(--paper-2);
+  --ink-3: var(--paper-3);
+  --cream: var(--text);
+  --gold: var(--ice);
+  --gold-hi: var(--ice-hi);
+  --gold-lo: var(--ice-lo);
+  --violet: var(--blue);
+  --violet-lo: var(--ice-lo);
+  --gold-grad: var(--ice-grad);
+  --gold-violet: var(--ice-blue-grad);
 
   /* Surfaces */
-  --surface: rgba(255, 244, 224, 0.03);
-  --surface-2: rgba(255, 244, 224, 0.05);
-  --border: rgba(243, 234, 217, 0.1);
-  --border-hi: rgba(244, 161, 60, 0.35);
+  --surface: #ffffff;
+  --surface-2: #f1f6fc;
+  --border: rgba(20, 40, 70, 0.1);
+  --border-hi: rgba(58, 147, 255, 0.4);
 
   /* Typography */
   --font-display: "Bricolage Grotesque", system-ui, sans-serif;
@@ -53,7 +67,10 @@
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
 
-  /* Glows */
-  --glow-gold: 0 0 40px -8px rgba(244, 161, 60, 0.5);
-  --glow-violet: 0 0 50px -10px rgba(138, 108, 255, 0.5);
+  /* Shadows / glows (light theme = soft depth) */
+  --shadow-sm: 0 6px 20px -12px rgba(20, 40, 70, 0.3);
+  --shadow-md: 0 16px 40px -20px rgba(20, 40, 70, 0.35);
+  --shadow-ice: 0 20px 50px -22px rgba(58, 147, 255, 0.5);
+  --glow-gold: var(--shadow-ice);
+  --glow-violet: 0 18px 50px -24px rgba(22, 58, 95, 0.4);
 }
