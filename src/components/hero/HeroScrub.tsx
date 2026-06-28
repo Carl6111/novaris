@@ -150,11 +150,11 @@ export default function HeroScrub() {
           </Beat>
 
           <Beat progress={scrollYProgress} range={[0.12, 0.18, 0.24, 0.3]}>
-            <h1>Fünf Werkzeuge. Ein Chaos.</h1>
+            <h1>Ein Tag. Hunderte Aufgaben.</h1>
           </Beat>
 
           <Beat progress={scrollYProgress} range={[0.46, 0.52, 0.58, 0.64]}>
-            <h2 className="hero-mid gold-text">Eine Plattform.</h2>
+            <h2 className="hero-mid gold-text">Ein System erledigt sie.</h2>
           </Beat>
         </div>
       </div>
