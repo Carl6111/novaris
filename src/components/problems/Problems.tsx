@@ -24,16 +24,27 @@ interface ItemProps {
   text: string;
 }
 
+// motion useTransform requires a monotonically increasing input range within [0,1]
+function clampRange(
+  raw: [number, number, number, number]
+): [number, number, number, number] {
+  const out = raw.map((v) => Math.min(1, Math.max(0, v)));
+  for (let i = 1; i < out.length; i++) {
+    if (out[i] <= out[i - 1]) out[i] = Math.min(1, out[i - 1] + 0.0001);
+  }
+  return out as [number, number, number, number];
+}
+
 function ProblemItem({ progress, index, total, text }: ItemProps) {
   const side = index % 2 === 0 ? "left" : "right";
   const center = (index + 0.5) / total;
   const span = 0.5 / total;
-  const range: [number, number, number, number] = [
+  const range = clampRange([
     center - span * 1.6,
     center - span * 0.7,
     center + span * 0.7,
     center + span * 1.6,
-  ];
+  ]);
 
   const opacity = useTransform(progress, range, [0, 1, 1, 0]);
   const y = useTransform(progress, range, [70, 0, 0, -70]);

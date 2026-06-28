@@ -59,11 +59,12 @@ interface BeatProps {
   range: [number, number, number, number];
   children: ReactNode;
   className?: string;
+  intro?: boolean;
 }
 
-function Beat({ progress, range, children, className }: BeatProps) {
-  const opacity = useTransform(progress, range, [0, 1, 1, 0]);
-  const y = useTransform(progress, range, [40, 0, 0, -40]);
+function Beat({ progress, range, children, className, intro }: BeatProps) {
+  const opacity = useTransform(progress, range, intro ? [1, 1, 1, 0] : [0, 1, 1, 0]);
+  const y = useTransform(progress, range, intro ? [0, 0, 0, -40] : [40, 0, 0, -40]);
   return (
     <motion.div className={`hero-beat ${className ?? ""}`} style={{ opacity, y }}>
       {children}
@@ -142,7 +143,7 @@ export default function HeroScrub() {
         {!ready && <div className="hero-loader" aria-hidden="true" />}
 
         <div className="hero-overlay wrap">
-          <Beat progress={scrollYProgress} range={[0, 0.04, 0.26, 0.34]}>
+          <Beat progress={scrollYProgress} range={[0, 0.18, 0.27, 0.34]} intro>
             <p className="eyebrow">// Dein Betrieb. Jeden Tag.</p>
             <h1>Hunderte Probleme im Unternehmen.</h1>
             <p className="hero-sub">
