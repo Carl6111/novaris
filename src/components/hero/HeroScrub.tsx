@@ -120,16 +120,17 @@ export default function HeroScrub() {
   if (prefersReduced) {
     return (
       <section className="hero hero--static">
-        <img src="/hero/frame-001.jpg" alt="" className="hero-static-img" />
+        <img src="/hero/frame-144.jpg" alt="" className="hero-static-img" />
         <div className="hero-static-copy wrap">
-          <p className="eyebrow">// Jeden Tag aufs Neue</p>
+          <p className="eyebrow">// Growth Engine+</p>
           <h1>
-            Hunderte Probleme. Ein Schreibtisch.
+            Fünf Werkzeuge. Ein Chaos.
             <br />
-            <span className="gold-text">Ein System sortiert alles.</span>
+            <span className="gold-text">Eine Plattform.</span>
           </h1>
           <p className="hero-sub">
-            Anfragen, Doku, Rechnungen, Leads — alles auf einmal, alles von Hand.
+            Website, CRM, AI Docs, Client Portal, Invoicing — gebündelt in einem
+            System.
           </p>
         </div>
       </section>
@@ -143,27 +144,17 @@ export default function HeroScrub() {
         {!ready && <div className="hero-loader" aria-hidden="true" />}
 
         <div className="hero-overlay wrap">
-          <Beat progress={scrollYProgress} range={[0, 0.18, 0.27, 0.34]} intro>
-            <p className="eyebrow">// Jeden Tag aufs Neue</p>
-            <h1>Hunderte Probleme. Ein Schreibtisch.</h1>
-            <p className="hero-sub">
-              Anfragen, Doku, Rechnungen, Leads — alles auf einmal, alles von
-              Hand.
-            </p>
+          <Beat progress={scrollYProgress} range={[0, 0.015, 0.05, 0.1]} intro>
+            <p className="eyebrow">// Growth Engine+</p>
             <span className="hero-cue">Scroll ↓</span>
           </Beat>
 
-          <Beat progress={scrollYProgress} range={[0.4, 0.5, 0.62, 0.7]}>
-            <h2 className="hero-mid">
-              Ein System <span className="gold-text">übernimmt.</span>
-            </h2>
+          <Beat progress={scrollYProgress} range={[0.12, 0.18, 0.24, 0.3]}>
+            <h1>Fünf Werkzeuge. Ein Chaos.</h1>
           </Beat>
 
-          <Beat progress={scrollYProgress} range={[0.74, 0.84, 0.93, 1]}>
-            <h2 className="hero-mid gold-text">Alles sortiert.</h2>
-            <p className="hero-sub">
-              Eure KI-Agenten ordnen, was euch täglich überrollt — automatisch.
-            </p>
+          <Beat progress={scrollYProgress} range={[0.46, 0.52, 0.58, 0.64]}>
+            <h2 className="hero-mid gold-text">Eine Plattform.</h2>
           </Beat>
         </div>
       </div>

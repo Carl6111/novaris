@@ -38,9 +38,9 @@ export default function App() {
       <Nav />
       <main>
         <HeroScrub />
-        <Problems />
         <Payoff />
         <Modules />
+        <Problems />
         <Pricing />
         <Process />
         <Examples />

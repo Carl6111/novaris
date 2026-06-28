@@ -1,28 +1,49 @@
 import Reveal from "../ui/Reveal";
+import Button from "../ui/Button";
 import "./payoff.css";
+
+const MODULES = ["Website", "CRM", "AI Docs", "Client Portal", "Invoicing"];
 
 export default function Payoff() {
   return (
-    <section className="payoff">
-      <div className="wrap payoff-inner">
-        <Reveal>
-          <p className="eyebrow">// Vom Chaos zur Klarheit</p>
-        </Reveal>
-        <Reveal delay={0.05}>
-          <h2 className="payoff-line">
-            So viel passiert täglich in eurem Betrieb.
-          </h2>
-        </Reveal>
-        <Reveal delay={0.12}>
-          <h2 className="payoff-line payoff-line--accent gold-text">
-            Ein System bündelt alles.
-          </h2>
-        </Reveal>
-        <Reveal delay={0.2}>
-          <p className="payoff-sub">
-            Alles, was euer Betrieb täglich braucht — gebündelt, automatisiert,
-            in eurer Hand.
-          </p>
+    <section className="platform">
+      <div className="wrap platform-grid">
+        <div className="platform-copy">
+          <Reveal>
+            <p className="eyebrow">// Eine Plattform</p>
+          </Reveal>
+          <Reveal delay={0.05}>
+            <h2 className="platform-title">
+              Euer ganzer Betrieb. <span className="gold-text">Ein Login.</span>
+            </h2>
+          </Reveal>
+          <Reveal delay={0.1}>
+            <p className="platform-sub">
+              Website, CRM, AI Docs, Client Portal und Invoicing — kein
+              Tool-Chaos mehr. Alles greift ineinander, alles in eurer Hand.
+            </p>
+          </Reveal>
+          <Reveal delay={0.15}>
+            <ul className="platform-chips">
+              {MODULES.map((m) => (
+                <li key={m}>{m}</li>
+              ))}
+            </ul>
+          </Reveal>
+          <Reveal delay={0.2}>
+            <Button href="#kontakt" variant="primary" className="platform-cta">
+              Plattform ansehen
+            </Button>
+          </Reveal>
+        </div>
+
+        <Reveal delay={0.1} className="platform-visual">
+          <img
+            src="/hero/frame-144.jpg"
+            alt="Novaris Plattform-Dashboard"
+            className="platform-dash"
+            loading="lazy"
+          />
         </Reveal>
       </div>
     </section>
