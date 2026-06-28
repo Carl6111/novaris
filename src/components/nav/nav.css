@@ -16,6 +16,17 @@
   border-bottom-color: var(--border);
 }
 
+/* transparent over the dark hero -> light text */
+.nav:not(.nav--solid) .nav-logo {
+  color: #fff;
+}
+.nav:not(.nav--solid) .nav-links a {
+  color: rgba(255, 255, 255, 0.75);
+}
+.nav:not(.nav--solid) .nav-links a:hover {
+  color: #fff;
+}
+
 .nav-inner {
   display: flex;
   align-items: center;

@@ -124,14 +124,10 @@ export default function HeroScrub() {
         <div className="hero-static-copy wrap">
           <p className="eyebrow">// Growth Engine+</p>
           <h1>
-            Fünf Werkzeuge. Ein Chaos.
+            Hunderte Probleme. <span className="gold-text">Eine Lösung.</span>
             <br />
-            <span className="gold-text">Eine Plattform.</span>
+            Hunderte Agenten. <span className="gold-text">Ein System.</span>
           </h1>
-          <p className="hero-sub">
-            Website, CRM, AI Docs, Client Portal, Invoicing — gebündelt in einem
-            System.
-          </p>
         </div>
       </section>
     );
@@ -149,12 +145,19 @@ export default function HeroScrub() {
             <span className="hero-cue">Scroll ↓</span>
           </Beat>
 
-          <Beat progress={scrollYProgress} range={[0.12, 0.18, 0.24, 0.3]}>
-            <h1>Ein Tag. Hunderte Aufgaben.</h1>
+          <Beat progress={scrollYProgress} range={[0.08, 0.15, 0.28, 0.36]}>
+            <h1>
+              Hunderte Probleme.
+              <br />
+              <span className="gold-text">Eine Lösung.</span>
+            </h1>
           </Beat>
 
-          <Beat progress={scrollYProgress} range={[0.46, 0.52, 0.58, 0.64]}>
-            <h2 className="hero-mid gold-text">Ein System erledigt sie.</h2>
+          <Beat progress={scrollYProgress} range={[0.46, 0.54, 0.66, 0.74]}>
+            <h2 className="hero-mid">
+              Hunderte Agenten.{" "}
+              <span className="gold-text">Ein System.</span>
+            </h2>
           </Beat>
         </div>
       </div>

@@ -39,7 +39,7 @@ export default function Payoff() {
 
         <Reveal delay={0.1} className="platform-visual">
           <img
-            src="/hero/frame-144.jpg"
+            src="/images/googleseo.png"
             alt="Novaris Plattform-Dashboard"
             className="platform-dash"
             loading="lazy"
