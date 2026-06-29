@@ -1,0 +1,40 @@
+.about {
+  background: var(--bone);
+}
+.about-lead {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-weight: 500;
+  line-height: 1.18;
+  max-width: 22ch;
+  text-wrap: balance;
+}
+.about-para {
+  margin-top: 1.8rem;
+  color: var(--dim);
+  font-size: var(--text-lg);
+  max-width: 56ch;
+}
+.about-values {
+  margin-top: clamp(3rem, 2rem + 4vw, 5rem);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(1.5rem, 1rem + 2vw, 3rem);
+}
+.about-value {
+  border-top: 2px solid var(--emer);
+  padding-top: 1.2rem;
+}
+.about-value h3 {
+  font-size: var(--text-lg);
+  font-weight: 600;
+}
+.about-value p {
+  margin-top: 0.5rem;
+  color: var(--dim);
+}
+@media (max-width: 760px) {
+  .about-values {
+    grid-template-columns: 1fr;
+  }
+}

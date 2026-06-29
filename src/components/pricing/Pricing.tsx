@@ -47,20 +47,6 @@ export default function Pricing() {
   return (
     <section id="preise" className="section pricing">
       <div className="wrap">
-        <Reveal>
-          <div className="section-head">
-            <p className="eyebrow">// Pakete</p>
-            <h2>
-              Klein anfangen — oder das{" "}
-              <span className="gold-text">volle System.</span>
-            </h2>
-            <p>
-              Alle Preise sind Richtwerte. Wir schnüren das Paket auf euren
-              echten Prozess.
-            </p>
-          </div>
-        </Reveal>
-
         <div className="pricing-grid">
           {TIERS.map((t, i) => (
             <Reveal

@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "./footer.css";
 
 export default function Footer() {
@@ -5,15 +6,16 @@ export default function Footer() {
     <footer className="footer">
       <div className="wrap footer-inner">
         <div className="footer-brand">
-          <span className="footer-logo">NOVARIS</span>
+          <Link to="/" className="footer-logo">
+            NOVARIS
+          </Link>
           <p>KI-Systeme, die euren Betrieb täglich entlasten.</p>
         </div>
         <nav className="footer-links" aria-label="Footer">
-          <a href="#system">System</a>
-          <a href="#preise">Preise</a>
-          <a href="#faq">FAQ</a>
-          <a href="#">Impressum</a>
-          <a href="#">Datenschutz</a>
+          <Link to="/plattform">Plattform</Link>
+          <Link to="/preise">Preise</Link>
+          <Link to="/ueber">Über</Link>
+          <Link to="/kontakt">Kontakt</Link>
         </nav>
       </div>
       <div className="wrap footer-bottom">

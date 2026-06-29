@@ -1,0 +1,39 @@
+.includes {
+  background: var(--bone);
+  border-top: 1px solid var(--border);
+}
+.includes-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(1rem, 0.5rem + 1.5vw, 1.8rem);
+}
+.include {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  padding-top: 1.2rem;
+  border-top: 2px solid var(--emer);
+}
+.include-check {
+  font-size: 1.1rem;
+  color: var(--emer);
+  font-weight: 700;
+}
+.include h3 {
+  font-size: var(--text-lg);
+  font-weight: 600;
+}
+.include p {
+  color: var(--dim);
+  font-size: var(--text-base);
+}
+@media (max-width: 860px) {
+  .includes-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (max-width: 520px) {
+  .includes-grid {
+    grid-template-columns: 1fr;
+  }
+}

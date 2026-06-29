@@ -1,53 +1,59 @@
 :root {
-  /* Light ice-blue palette */
-  --paper: #f4f8fc;
-  --paper-2: #ffffff;
-  --paper-3: #e9f1fa;
+  /* Atelier palette — warm editorial, emerald + amber */
+  --bone: #f5f1e8;
+  --bone-2: #fbf9f3;
+  --bone-3: #ece6d8;
 
-  --text: #0f1b2a;
-  --text-soft: #24405e;
-  --dim: #52627a;
-  --dim-2: #8595a8;
+  --ink: #171511;
+  --ink-soft: #3a352b;
+  --dim: #6b6456;
+  --dim-2: #9a9180;
 
-  --ice: #3a93ff;
-  --ice-hi: #8fd0ff;
-  --ice-lo: #1d6fd4;
-  --blue: #163a5f;
+  --emer: #1f6e43;
+  --emer-hi: #3fa66b;
+  --emer-lo: #13502f;
+  --amber: #e0793b;
+  --amber-hi: #f2a35e;
 
-  --ice-grad: linear-gradient(135deg, var(--ice-lo), var(--ice) 45%, var(--ice-hi));
-  --ice-blue-grad: linear-gradient(120deg, var(--ice) 0%, var(--ice-hi) 45%, var(--blue) 100%);
+  --accent-grad: linear-gradient(120deg, var(--emer-lo), var(--emer) 50%, var(--emer-hi));
+  --warm-grad: linear-gradient(120deg, var(--emer) 0%, var(--amber) 100%);
 
-  /* Legacy aliases — keep component CSS working after recolor */
-  --ink: var(--paper);
-  --ink-2: var(--paper-2);
-  --ink-3: var(--paper-3);
-  --cream: var(--text);
-  --gold: var(--ice);
-  --gold-hi: var(--ice-hi);
-  --gold-lo: var(--ice-lo);
-  --violet: var(--blue);
-  --violet-lo: var(--ice-lo);
-  --gold-grad: var(--ice-grad);
-  --gold-violet: var(--ice-blue-grad);
+  /* Legacy aliases — keep older component CSS working */
+  --paper: var(--bone);
+  --ink-2: var(--bone-2);
+  --ink-3: var(--bone-3);
+  --cream: var(--ink);
+  --text: var(--ink);
+  --text-soft: var(--ink-soft);
+  --ice: var(--emer);
+  --ice-hi: var(--emer-hi);
+  --ice-lo: var(--emer-lo);
+  --blue: var(--amber);
+  --gold: var(--emer);
+  --gold-hi: var(--emer-hi);
+  --gold-lo: var(--emer-lo);
+  --violet: var(--amber);
+  --gold-grad: var(--accent-grad);
+  --ice-grad: var(--accent-grad);
 
   /* Surfaces */
-  --surface: #ffffff;
-  --surface-2: #f1f6fc;
-  --border: rgba(20, 40, 70, 0.1);
-  --border-hi: rgba(58, 147, 255, 0.4);
+  --surface: var(--bone-2);
+  --surface-2: #ffffff;
+  --border: rgba(23, 21, 17, 0.12);
+  --border-hi: rgba(31, 110, 67, 0.4);
 
   /* Typography */
-  --font-display: "Bricolage Grotesque", system-ui, sans-serif;
-  --font-body: "Manrope", system-ui, sans-serif;
+  --font-display: "Fraunces", Georgia, serif;
+  --font-body: "Inter", system-ui, sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, monospace;
 
   --text-xs: 0.78rem;
   --text-sm: 0.92rem;
   --text-base: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
   --text-lg: clamp(1.2rem, 1rem + 0.8vw, 1.6rem);
-  --text-xl: clamp(1.8rem, 1.2rem + 2vw, 3rem);
-  --text-2xl: clamp(2.4rem, 1.4rem + 4vw, 5rem);
-  --text-hero: clamp(2.8rem, 1rem + 8vw, 8.5rem);
+  --text-xl: clamp(1.9rem, 1.2rem + 2.2vw, 3.2rem);
+  --text-2xl: clamp(2.6rem, 1.4rem + 4.4vw, 5.4rem);
+  --text-hero: clamp(3rem, 1rem + 8.5vw, 9rem);
 
   /* Spacing */
   --space-section: clamp(5rem, 4rem + 6vw, 11rem);
@@ -57,8 +63,8 @@
   /* Radius */
   --r-sm: 10px;
   --r-md: 16px;
-  --r-lg: 24px;
-  --r-xl: 32px;
+  --r-lg: 22px;
+  --r-xl: 30px;
 
   /* Motion */
   --dur-fast: 150ms;
@@ -67,10 +73,11 @@
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
 
-  /* Shadows / glows (light theme = soft depth) */
-  --shadow-sm: 0 6px 20px -12px rgba(20, 40, 70, 0.3);
-  --shadow-md: 0 16px 40px -20px rgba(20, 40, 70, 0.35);
-  --shadow-ice: 0 20px 50px -22px rgba(58, 147, 255, 0.5);
-  --glow-gold: var(--shadow-ice);
-  --glow-violet: 0 18px 50px -24px rgba(22, 58, 95, 0.4);
+  /* Shadows */
+  --shadow-sm: 0 6px 20px -12px rgba(23, 21, 17, 0.3);
+  --shadow-md: 0 18px 44px -22px rgba(23, 21, 17, 0.4);
+  --shadow-lg: 0 40px 90px -40px rgba(23, 21, 17, 0.45);
+  --shadow-emer: 0 22px 50px -24px rgba(31, 110, 67, 0.45);
+  --glow-gold: var(--shadow-emer);
+  --shadow-ice: var(--shadow-emer);
 }

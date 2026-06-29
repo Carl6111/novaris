@@ -1,9 +1,7 @@
 .problems {
   position: relative;
-  height: 460vh;
-  background:
-    radial-gradient(80% 50% at 50% 50%, rgba(22, 58, 95, 0.06), transparent 70%),
-    var(--ink);
+  height: 520vh;
+  background: var(--bone);
 }
 
 .problems-sticky {
@@ -15,21 +13,15 @@
   place-items: center;
 }
 
-.problems-thesis {
+.problems-thesis-text {
   position: relative;
   z-index: 2;
   text-align: center;
-  display: flex;
-  flex-direction: column;
-  gap: 0.9rem;
-  align-items: center;
-  pointer-events: none;
-}
-
-.problems-thesis-text {
   font-size: var(--text-2xl);
-  font-weight: 800;
+  font-weight: 600;
   text-wrap: balance;
+  max-width: 16ch;
+  pointer-events: none;
 }
 
 .problems-stage {
@@ -38,58 +30,38 @@
   z-index: 1;
 }
 
-.problem-card {
+.problem-line {
   position: absolute;
   top: 50%;
-  width: min(40vw, 420px);
-  padding: 1.6rem 1.8rem;
-  background: linear-gradient(
-    160deg,
-    rgba(58, 147, 255, 0.07),
-    var(--surface)
-  );
-  border: 1px solid var(--border);
-  border-radius: var(--r-lg);
-  backdrop-filter: blur(8px);
-  box-shadow: 0 20px 50px -24px rgba(20, 40, 70, 0.2);
-  will-change: transform, opacity;
-}
-
-.problem-card p {
+  width: min(42vw, 460px);
   font-family: var(--font-display);
-  font-size: var(--text-lg);
+  font-size: clamp(1.5rem, 1.1rem + 1.4vw, 2.3rem);
   font-weight: 500;
-  line-height: 1.2;
-  color: var(--cream);
+  line-height: 1.12;
+  color: var(--ink-soft);
+  will-change: transform, opacity, filter;
 }
-
-.problem-card--left {
-  left: clamp(1rem, 7vw, 9rem);
-  margin-top: -7rem;
+.problem-line--left {
+  left: clamp(1.25rem, 6vw, 8rem);
   text-align: left;
-  border-left: 2px solid var(--gold);
+  margin-top: -8rem;
 }
-
-.problem-card--right {
-  right: clamp(1rem, 7vw, 9rem);
-  margin-top: 1rem;
+.problem-line--right {
+  right: clamp(1.25rem, 6vw, 8rem);
   text-align: right;
-  border-right: 2px solid var(--violet);
+  margin-top: 4rem;
 }
 
-.problem-index {
+.problem-num {
   display: block;
   font-family: var(--font-mono);
-  font-size: var(--text-sm);
+  font-size: 0.7rem;
   letter-spacing: 0.2em;
-  color: var(--gold);
-  margin-bottom: 0.5rem;
-}
-.problem-card--right .problem-index {
-  color: var(--violet);
+  color: var(--emer);
+  margin-bottom: 0.6rem;
 }
 
-/* Static / reduced-motion */
+/* reduced-motion list */
 .problems--static {
   height: auto;
   padding-block: var(--space-section);
@@ -98,37 +70,39 @@
   display: block;
   margin-bottom: 1rem;
 }
+.problems--static .problems-thesis-text {
+  text-align: left;
+  margin-bottom: 2.5rem;
+}
 .problems-list {
   list-style: none;
-  margin-top: 2.5rem;
   display: grid;
-  gap: 1rem;
+  gap: 1.2rem;
   max-width: 640px;
 }
 .problems-list li {
-  padding: 1.2rem 1.4rem;
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: var(--r-md);
   font-family: var(--font-display);
   font-size: var(--text-lg);
+  color: var(--ink-soft);
+  border-top: 1px solid var(--border);
+  padding-top: 1rem;
 }
 
 @media (max-width: 720px) {
-  .problem-card {
-    width: min(78vw, 380px);
-  }
-  .problem-card--left {
-    left: 50%;
-    transform: translateX(-50%);
-    margin-top: -9rem;
-    text-align: center;
-  }
-  .problem-card--right {
+  .problem-line {
+    width: 80vw;
+    left: 10vw;
     right: auto;
-    left: 50%;
-    transform: translateX(-50%);
-    margin-top: 6rem;
-    text-align: center;
+    text-align: left;
+    font-size: clamp(1.4rem, 5vw, 2rem);
+  }
+  .problem-line--right {
+    text-align: right;
+  }
+  .problem-line--left {
+    margin-top: -10rem;
+  }
+  .problem-line--right {
+    margin-top: 7rem;
   }
 }

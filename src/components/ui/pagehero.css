@@ -1,0 +1,23 @@
+.pagehero {
+  padding-top: clamp(8rem, 6rem + 8vw, 13rem);
+  padding-bottom: clamp(2rem, 1rem + 3vw, 4rem);
+  background:
+    radial-gradient(70% 80% at 80% 0%, rgba(63, 166, 107, 0.12), transparent 70%),
+    var(--bone);
+}
+.pagehero .eyebrow {
+  display: block;
+  margin-bottom: 1.2rem;
+}
+.pagehero-title {
+  font-size: var(--text-2xl);
+  font-weight: 600;
+  max-width: 16ch;
+  text-wrap: balance;
+}
+.pagehero-sub {
+  margin-top: 1.4rem;
+  color: var(--dim);
+  font-size: var(--text-lg);
+  max-width: 52ch;
+}

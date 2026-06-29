@@ -25,8 +25,8 @@ html.lenis body {
 }
 
 body {
-  background: var(--ink);
-  color: var(--cream);
+  background: var(--bone);
+  color: var(--ink);
   font-family: var(--font-body);
   font-size: var(--text-base);
   line-height: 1.6;
@@ -37,9 +37,21 @@ h1,
 h2,
 h3 {
   font-family: var(--font-display);
-  font-weight: 700;
-  line-height: 1.02;
-  letter-spacing: -0.02em;
+  font-weight: 600;
+  line-height: 1.04;
+  letter-spacing: -0.015em;
+  font-optical-sizing: auto;
+}
+
+/* schwungvoll accent: italic Fraunces in emerald */
+.ital {
+  font-style: italic;
+  font-weight: 500;
+}
+.accent {
+  color: var(--emer);
+  font-style: italic;
+  font-weight: 500;
 }
 
 a {
@@ -61,8 +73,8 @@ img {
 }
 
 ::selection {
-  background: rgba(58, 147, 255, 0.22);
-  color: var(--text);
+  background: rgba(31, 110, 67, 0.2);
+  color: var(--ink);
 }
 
 /* Layout helpers */
@@ -104,7 +116,7 @@ img {
   inset: 0;
   z-index: 8999;
   pointer-events: none;
-  background: radial-gradient(120% 90% at 50% 30%, transparent 60%, rgba(22, 58, 95, 0.08) 100%);
+  background: radial-gradient(120% 90% at 50% 25%, transparent 62%, rgba(23, 21, 17, 0.07) 100%);
 }
 
 @media (prefers-reduced-motion: reduce) {

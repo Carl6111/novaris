@@ -1,0 +1,48 @@
+.integrations {
+  background: var(--bone);
+  padding-block: clamp(3rem, 2rem + 3vw, 5rem);
+  border-top: 1px solid var(--border);
+}
+.integrations-label {
+  text-align: center;
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--dim);
+  margin-bottom: 2.5rem;
+}
+.integrations-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(2rem, 1rem + 4vw, 5rem);
+}
+.integrations-logo {
+  height: 34px;
+  width: auto;
+  filter: grayscale(1);
+  opacity: 0.45;
+  transition:
+    filter var(--dur) var(--ease-out-expo),
+    opacity var(--dur) var(--ease-out-expo),
+    transform var(--dur) var(--ease-out-expo);
+}
+.integrations-logo:hover {
+  filter: grayscale(0);
+  opacity: 1;
+  transform: translateY(-3px);
+}
+.integrations-word {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--dim);
+  opacity: 0.55;
+  transition: color var(--dur), opacity var(--dur);
+}
+.integrations-word:hover {
+  color: var(--ink);
+  opacity: 1;
+}

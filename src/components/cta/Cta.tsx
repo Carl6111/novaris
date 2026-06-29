@@ -4,7 +4,7 @@ import "./cta.css";
 
 export default function Cta() {
   return (
-    <section id="kontakt" className="cta">
+    <section className="cta">
       <div className="cta-glow" aria-hidden="true" />
       <div className="wrap cta-inner">
         <Reveal>
@@ -12,7 +12,7 @@ export default function Cta() {
         </Reveal>
         <Reveal delay={0.06}>
           <h2 className="cta-title">
-            Lass uns <span className="gold-text">15 Minuten</span> reden.
+            Lass uns <span className="accent">15 Minuten</span> reden.
           </h2>
         </Reveal>
         <Reveal delay={0.12}>
@@ -23,12 +23,9 @@ export default function Cta() {
         </Reveal>
         <Reveal delay={0.18}>
           <div className="cta-actions">
-            <Button href="mailto:[PLATZHALTER-EMAIL]" variant="primary">
+            <Button href="/kontakt" variant="primary">
               Gespräch buchen
             </Button>
-            <a href="tel:[PLATZHALTER-TEL]" className="cta-call">
-              oder anrufen
-            </a>
           </div>
         </Reveal>
       </div>
