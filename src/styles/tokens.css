@@ -1,24 +1,29 @@
 :root {
-  /* Atelier palette — warm editorial, emerald + amber */
-  --bone: #f5f1e8;
-  --bone-2: #fbf9f3;
-  --bone-3: #ece6d8;
+  /* Palette — Cloud Dancer paper · Ink · Teal trust · Electric tech · Ember CTA */
+  --bone: #f0eee9;
+  --bone-2: #f7f3ee;
+  --bone-3: #e7e3da;
 
-  --ink: #171511;
-  --ink-soft: #3a352b;
-  --dim: #6b6456;
-  --dim-2: #9a9180;
+  --ink: #141414;
+  --ink-soft: #2b2f36; /* slate */
+  --dim: #5e6168;
+  --dim-2: #9a978f;
 
-  --emer: #1f6e43;
-  --emer-hi: #3fa66b;
-  --emer-lo: #13502f;
-  --amber: #e0793b;
-  --amber-hi: #f2a35e;
+  /* primary — transformative teal (trust) */
+  --emer: #006d77;
+  --emer-hi: #1fa5b0;
+  --emer-lo: #0f2d1c;
+  /* CTA — ember / warm amber */
+  --amber: #ff6a3d;
+  --amber-hi: #ff8a63;
+  /* tech accent + subtle */
+  --tech: #00a8e8;
+  --mist: #bfd3e7;
 
   --accent-grad: linear-gradient(120deg, var(--emer-lo), var(--emer) 50%, var(--emer-hi));
   --warm-grad: linear-gradient(120deg, var(--emer) 0%, var(--amber) 100%);
 
-  /* Legacy aliases — keep older component CSS working */
+  /* Legacy aliases — keep component CSS working */
   --paper: var(--bone);
   --ink-2: var(--bone-2);
   --ink-3: var(--bone-3);
@@ -39,8 +44,8 @@
   /* Surfaces */
   --surface: var(--bone-2);
   --surface-2: #ffffff;
-  --border: rgba(23, 21, 17, 0.12);
-  --border-hi: rgba(31, 110, 67, 0.4);
+  --border: rgba(20, 20, 20, 0.12);
+  --border-hi: rgba(0, 109, 119, 0.42);
 
   /* Typography */
   --font-display: "Fraunces", Georgia, serif;
@@ -74,10 +79,10 @@
   --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
 
   /* Shadows */
-  --shadow-sm: 0 6px 20px -12px rgba(23, 21, 17, 0.3);
-  --shadow-md: 0 18px 44px -22px rgba(23, 21, 17, 0.4);
-  --shadow-lg: 0 40px 90px -40px rgba(23, 21, 17, 0.45);
-  --shadow-emer: 0 22px 50px -24px rgba(31, 110, 67, 0.45);
+  --shadow-sm: 0 6px 20px -12px rgba(20, 20, 20, 0.3);
+  --shadow-md: 0 18px 44px -22px rgba(20, 20, 20, 0.4);
+  --shadow-lg: 0 40px 90px -40px rgba(20, 20, 20, 0.45);
+  --shadow-emer: 0 22px 50px -24px rgba(0, 109, 119, 0.4);
   --glow-gold: var(--shadow-emer);
   --shadow-ice: var(--shadow-emer);
 }

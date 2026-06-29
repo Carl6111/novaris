@@ -48,7 +48,7 @@
 
 .module-card--lead {
   grid-column: span 2;
-  background: linear-gradient(150deg, rgba(31, 110, 67, 0.1), var(--surface));
+  background: linear-gradient(150deg, rgba(0, 109, 119, 0.1), var(--surface));
   justify-content: flex-end;
 }
 .module-card--lead h3 {
@@ -60,7 +60,7 @@
   display: grid;
   place-items: center;
   text-align: center;
-  background: linear-gradient(120deg, rgba(224, 121, 59, 0.1), var(--surface));
+  background: linear-gradient(120deg, rgba(255, 106, 61, 0.1), var(--surface));
   border: 1px solid var(--border);
   border-radius: var(--r-lg);
 }

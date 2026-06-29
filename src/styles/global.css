@@ -73,7 +73,7 @@ img {
 }
 
 ::selection {
-  background: rgba(31, 110, 67, 0.2);
+  background: rgba(0, 109, 119, 0.2);
   color: var(--ink);
 }
 
@@ -90,7 +90,7 @@ img {
   font-size: var(--text-xs);
   letter-spacing: 0.28em;
   text-transform: uppercase;
-  color: var(--gold);
+  color: var(--tech);
 }
 
 .gold-text {

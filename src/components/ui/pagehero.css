@@ -2,7 +2,7 @@
   padding-top: clamp(8rem, 6rem + 8vw, 13rem);
   padding-bottom: clamp(2rem, 1rem + 3vw, 4rem);
   background:
-    radial-gradient(70% 80% at 80% 0%, rgba(63, 166, 107, 0.12), transparent 70%),
+    radial-gradient(70% 80% at 80% 0%, rgba(191, 211, 231, 0.12), transparent 70%),
     var(--bone);
 }
 .pagehero .eyebrow {
