@@ -32,6 +32,14 @@
   display: block;
 }
 
+.hero-endveil {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  background: radial-gradient(60% 60% at 50% 50%, #0c1119 0%, #07090d 100%);
+}
+
 .hero-loader {
   position: absolute;
   inset: 0;
@@ -61,6 +69,7 @@
 .hero-overlay {
   position: absolute;
   inset: 0;
+  z-index: 5;
   display: grid;
   place-items: center;
   text-align: center;
@@ -102,6 +111,29 @@
   color: var(--amber);
   font-style: italic;
   font-weight: 500;
+}
+
+/* final wordmark: logo-N + ovaris */
+.hero-wordmark {
+  flex-direction: row !important;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 0.04em;
+  color: #fff;
+  font-size: clamp(3rem, 1.5rem + 6vw, 7rem);
+  filter: drop-shadow(0 2px 34px rgba(0, 0, 0, 0.75));
+}
+.hero-wordmark-n {
+  height: 0.9em;
+  width: auto;
+  margin-bottom: 0.06em;
+}
+.hero-wordmark-rest {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1em;
+  line-height: 0.9;
+  letter-spacing: -0.015em;
 }
 
 .hero-sub {

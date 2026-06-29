@@ -117,6 +117,10 @@ export default function HeroScrub() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [ready]);
 
+  const wmOpacity = useTransform(scrollYProgress, [0.8, 0.9, 1], [0, 1, 1]);
+  const wmY = useTransform(scrollYProgress, [0.8, 0.9], [32, 0]);
+  const veilOpacity = useTransform(scrollYProgress, [0.8, 0.96], [0, 0.82]);
+
   if (prefersReduced) {
     return (
       <section className="hero hero--static">
@@ -138,6 +142,11 @@ export default function HeroScrub() {
       <div className="hero-sticky">
         <canvas ref={canvasRef} className="hero-canvas" />
         {!ready && <div className="hero-loader" aria-hidden="true" />}
+        <motion.div
+          className="hero-endveil"
+          style={{ opacity: veilOpacity }}
+          aria-hidden="true"
+        />
 
         <div className="hero-overlay wrap">
           <Beat progress={scrollYProgress} range={[0, 0.015, 0.05, 0.1]} intro>
@@ -160,6 +169,28 @@ export default function HeroScrub() {
               <span className="hero-accent">Ein System.</span>
             </h2>
           </Beat>
+
+          <motion.div
+            className="hero-beat hero-wordmark"
+            style={{ opacity: wmOpacity, y: wmY }}
+            aria-label="Novaris"
+          >
+            <svg
+              className="hero-wordmark-n"
+              viewBox="0 0 64 72"
+              fill="none"
+              aria-hidden="true"
+            >
+              <path
+                d="M10 62 L10 12 L54 60 L54 10"
+                stroke="currentColor"
+                strokeWidth="10"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+            <span className="hero-wordmark-rest">ovaris</span>
+          </motion.div>
         </div>
       </div>
     </section>
