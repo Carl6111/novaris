@@ -113,18 +113,30 @@
   font-weight: 500;
 }
 
-/* final wordmark: gold Novaris logo */
+/* final wordmark: gold logo-N as initial + ovaris */
 .hero-wordmark {
-  display: grid !important;
-  place-items: center;
+  flex-direction: row !important;
+  align-items: center;
+  justify-content: center;
+  gap: 0 !important;
+  font-size: clamp(2.6rem, 1.2rem + 6vw, 6.5rem);
+  filter: drop-shadow(0 8px 50px rgba(230, 195, 107, 0.28));
 }
 .hero-wordmark::before {
   display: none;
 }
-.hero-logo-img {
-  width: clamp(240px, 38vw, 520px);
-  height: auto;
-  filter: drop-shadow(0 8px 50px rgba(230, 195, 107, 0.3));
+.hero-wm-n {
+  height: 1.5em;
+  width: auto;
+  margin-right: -0.06em;
+}
+.hero-wm-text {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1em;
+  line-height: 1;
+  letter-spacing: -0.01em;
+  color: #e6c36b;
 }
 
 .hero-sub {

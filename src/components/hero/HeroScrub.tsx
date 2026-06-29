@@ -173,12 +173,14 @@ export default function HeroScrub() {
           <motion.div
             className="hero-beat hero-wordmark"
             style={{ opacity: wmOpacity, y: wmY }}
+            aria-label="Novaris"
           >
             <img
-              src="/logos/novaris-gold.png"
-              alt="Novaris"
-              className="hero-logo-img"
+              src="/logos/novaris-gold-mark.png"
+              alt=""
+              className="hero-wm-n"
             />
+            <span className="hero-wm-text">ovaris</span>
           </motion.div>
         </div>
       </div>
