@@ -117,9 +117,9 @@ export default function HeroScrub() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [ready]);
 
-  const wmOpacity = useTransform(scrollYProgress, [0.8, 0.9, 1], [0, 1, 1]);
-  const wmY = useTransform(scrollYProgress, [0.8, 0.9], [32, 0]);
-  const veilOpacity = useTransform(scrollYProgress, [0.8, 0.96], [0, 0.82]);
+  const wmOpacity = useTransform(scrollYProgress, [0.9, 0.97, 1], [0, 1, 1]);
+  const wmY = useTransform(scrollYProgress, [0.9, 0.97], [28, 0]);
+  const veilOpacity = useTransform(scrollYProgress, [0.84, 0.94, 1], [0, 0.92, 0.92]);
 
   if (prefersReduced) {
     return (

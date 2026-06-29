@@ -108,7 +108,7 @@
   text-shadow: 0 2px 30px rgba(0, 0, 0, 0.7);
 }
 .hero-accent {
-  color: var(--amber);
+  color: #e8c878;
   font-style: italic;
   font-weight: 500;
 }
