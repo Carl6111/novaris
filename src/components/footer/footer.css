@@ -14,10 +14,18 @@
 }
 
 .footer-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.12em;
   font-family: var(--font-display);
   font-weight: 800;
   letter-spacing: 0.18em;
   font-size: 1.1rem;
+}
+.footer-mark {
+  height: 1.9em;
+  width: auto;
+  filter: brightness(0);
 }
 .footer-brand p {
   margin-top: 0.6rem;

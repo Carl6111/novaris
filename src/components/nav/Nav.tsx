@@ -27,7 +27,8 @@ export default function Nav() {
     <header className={`nav ${solid ? "nav--solid" : ""}`}>
       <div className="nav-inner wrap">
         <Link to="/" className="nav-logo" aria-label="Novaris Startseite">
-          NOVARIS
+          <img src="/logos/novaris-mark.png" alt="" className="nav-mark" />
+          <span>OVARIS</span>
         </Link>
 
         <nav className="nav-links" aria-label="Hauptnavigation">
