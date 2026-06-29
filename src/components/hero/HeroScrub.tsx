@@ -173,23 +173,12 @@ export default function HeroScrub() {
           <motion.div
             className="hero-beat hero-wordmark"
             style={{ opacity: wmOpacity, y: wmY }}
-            aria-label="Novaris"
           >
-            <svg
-              className="hero-wordmark-n"
-              viewBox="0 0 64 72"
-              fill="none"
-              aria-hidden="true"
-            >
-              <path
-                d="M10 62 L10 12 L54 60 L54 10"
-                stroke="currentColor"
-                strokeWidth="10"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-            <span className="hero-wordmark-rest">ovaris</span>
+            <img
+              src="/logos/novaris-gold.png"
+              alt="Novaris"
+              className="hero-logo-img"
+            />
           </motion.div>
         </div>
       </div>
