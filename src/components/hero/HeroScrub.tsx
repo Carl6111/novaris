@@ -123,10 +123,10 @@ export default function HeroScrub() {
         <img src="/hero/frame-144.jpg" alt="" className="hero-static-img" />
         <div className="hero-static-copy wrap">
           <p className="eyebrow">// Growth Engine+</p>
-          <h1>
-            Hunderte Probleme. <span className="gold-text">Eine Lösung.</span>
+          <h1 className="hero-line">
+            Hunderte Probleme. <span className="hero-accent">Eine Lösung.</span>
             <br />
-            Hunderte Agenten. <span className="gold-text">Ein System.</span>
+            Hunderte Agenten. <span className="hero-accent">Ein System.</span>
           </h1>
         </div>
       </section>
@@ -146,17 +146,18 @@ export default function HeroScrub() {
           </Beat>
 
           <Beat progress={scrollYProgress} range={[0.08, 0.15, 0.28, 0.36]}>
-            <h1>
+            <h1 className="hero-line">
               Hunderte Probleme.
               <br />
-              <span className="gold-text">Eine Lösung.</span>
+              <span className="hero-accent">Eine Lösung.</span>
             </h1>
           </Beat>
 
           <Beat progress={scrollYProgress} range={[0.46, 0.54, 0.66, 0.74]}>
-            <h2 className="hero-mid">
-              Hunderte Agenten.{" "}
-              <span className="gold-text">Ein System.</span>
+            <h2 className="hero-line">
+              Hunderte Agenten.
+              <br />
+              <span className="hero-accent">Ein System.</span>
             </h2>
           </Beat>
         </div>
