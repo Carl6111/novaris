@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import {
   motion,
   useMotionValue,
+  useSpring,
   useTransform,
   useReducedMotion,
   useMotionValueEvent,
@@ -36,17 +37,13 @@ type Piece = {
   num: string;
   tag: string;
   benefits: string[];
-  hx: string;
-  hy: string;
+  fx: number;
+  fy: number;
   hz: string;
   angle: string;
   start: { x: number; y: number; rz: number };
   icon: React.ReactNode;
 };
-
-const R = "var(--R)";
-const r5 = "calc(var(--R) * 0.5)";
-const r86 = "calc(var(--R) * 0.866)";
 
 const PIECES: Piece[] = [
   {
@@ -55,9 +52,9 @@ const PIECES: Piece[] = [
     num: "01",
     tag: "Sichtbar",
     benefits: ["SEO-ready", "mobil top", "Lead-Capture eingebaut"],
-    hx: "0px",
-    hy: `calc(${R} * -1)`,
-    hz: "34px",
+    fx: 0,
+    fy: -1,
+    hz: "40px",
     angle: "-90deg",
     start: { x: -540, y: -320, rz: -38 },
     icon: (
@@ -73,9 +70,9 @@ const PIECES: Piece[] = [
     num: "02",
     tag: "Leads",
     benefits: ["keine verlorenen Anfragen", "Status-Pipeline", "Follow-up automatisch"],
-    hx: r86,
-    hy: `calc(${r5} * -1)`,
-    hz: "0px",
+    fx: 0.866,
+    fy: -0.5,
+    hz: "8px",
     angle: "-30deg",
     start: { x: 580, y: -240, rz: 34 },
     icon: (
@@ -93,9 +90,9 @@ const PIECES: Piece[] = [
     num: "03",
     tag: "Doku",
     benefits: ["Minuten statt Stunden", "immer konsistent", "auf Knopfdruck"],
-    hx: r86,
-    hy: r5,
-    hz: "18px",
+    fx: 0.866,
+    fy: 0.5,
+    hz: "24px",
     angle: "30deg",
     start: { x: 620, y: 280, rz: -30 },
     icon: (
@@ -112,9 +109,9 @@ const PIECES: Piece[] = [
     num: "04",
     tag: "Kunden",
     benefits: ["alles an einem Ort", "transparent", "weniger Rückfragen"],
-    hx: "0px",
-    hy: R,
-    hz: "34px",
+    fx: 0,
+    fy: 1,
+    hz: "40px",
     angle: "90deg",
     start: { x: -40, y: 480, rz: 26 },
     icon: (
@@ -132,9 +129,9 @@ const PIECES: Piece[] = [
     num: "05",
     tag: "Umsatz",
     benefits: ["Zahlungs-Tracking", "keine Mahn-Arbeit", "pünktlich raus"],
-    hx: `calc(${r86} * -1)`,
-    hy: r5,
-    hz: "18px",
+    fx: -0.866,
+    fy: 0.5,
+    hz: "24px",
     angle: "150deg",
     start: { x: -620, y: 260, rz: 38 },
     icon: (
@@ -150,9 +147,9 @@ const PIECES: Piece[] = [
     num: "06",
     tag: "Gefunden",
     benefits: ["lokal gefunden werden", "Top-Rankings", "Profil gepflegt"],
-    hx: `calc(${r86} * -1)`,
-    hy: `calc(${r5} * -1)`,
-    hz: "0px",
+    fx: -0.866,
+    fy: -0.5,
+    hz: "8px",
     angle: "210deg",
     start: { x: -580, y: -280, rz: -36 },
     icon: (
@@ -164,14 +161,28 @@ const PIECES: Piece[] = [
   },
 ];
 
+const SPARKS = Array.from({ length: 14 }, (_, i) => {
+  const a = (i / 14) * Math.PI * 2;
+  const r = 30 + (i % 5) * 12;
+  return {
+    x: Math.cos(a) * r,
+    y: Math.sin(a) * r,
+    d: (i % 7) * 0.4,
+    s: 0.6 + (i % 3) * 0.5,
+  };
+});
+
 type PieceProps = {
   piece: Piece;
   index: number;
   progress: MotionValue<number>;
   reduced: boolean;
+  active: boolean;
+  radius: number;
+  onToggle: (i: number) => void;
 };
 
-function EnginePiece({ piece, index, progress, reduced }: PieceProps) {
+function EnginePiece({ piece, index, progress, reduced, active, radius, onToggle }: PieceProps) {
   const s0 = 0.12 + index * 0.1;
   const e0 = Math.min(s0 + 0.22, 1);
   const x = useTransform(progress, [s0, e0], [piece.start.x, 0]);
@@ -180,32 +191,41 @@ function EnginePiece({ piece, index, progress, reduced }: PieceProps) {
   const rotateZ = useTransform(progress, [s0, e0], [piece.start.rz, 0]);
   const scale = useTransform(progress, [s0, e0], [0.5, 1]);
   const opacity = useTransform(progress, [Math.max(s0 - 0.04, 0), s0 + 0.08], [0, 1]);
-  const [flipped, setFlipped] = useState(false);
 
   const flyStyle = reduced ? undefined : { x, y, z, rotateZ, scale, opacity };
 
+  const cardAnim = reduced
+    ? { rotateY: active ? 180 : 0 }
+    : active
+      ? { x: -piece.fx * radius, y: -piece.fy * radius, z: 320, scale: 2.1, rotateY: 180 }
+      : { x: 0, y: 0, z: 0, scale: 1, rotateY: 0 };
+
   return (
     <div
-      className="slot"
+      className={`slot${active ? " active" : ""}`}
       style={
-        { "--hx": piece.hx, "--hy": piece.hy, "--hz": piece.hz } as React.CSSProperties
+        {
+          "--hx": `calc(var(--R) * ${piece.fx})`,
+          "--hy": `calc(var(--R) * ${piece.fy})`,
+          "--hz": piece.hz,
+        } as React.CSSProperties
       }
     >
       <motion.div className="piece-fly" style={flyStyle}>
         <button
           type="button"
           className="piece"
-          aria-pressed={flipped}
+          aria-pressed={active}
           aria-label={`${piece.name} — umdrehen für Details`}
-          onClick={() => setFlipped((f) => !f)}
+          onClick={() => onToggle(index)}
         >
           <motion.div
             className="piece-card"
-            animate={{ rotateY: flipped ? 180 : 0 }}
-            transition={{ type: "spring", stiffness: 260, damping: 26 }}
+            animate={cardAnim}
+            transition={{ type: "spring", stiffness: 190, damping: 21 }}
           >
             <div className="face front">
-              {piece.icon}
+              <span className="ic-wrap">{piece.icon}</span>
               <div>
                 <div className="pt">{piece.name}</div>
                 <div className="pn">
@@ -220,6 +240,7 @@ function EnginePiece({ piece, index, progress, reduced }: PieceProps) {
                   <li key={b}>{b}</li>
                 ))}
               </ul>
+              <span className="back-hint">schliessen</span>
             </div>
           </motion.div>
         </button>
@@ -241,33 +262,83 @@ function Spoke({ index, angle, progress, reduced }: SpokeProps) {
   const scaleX = useTransform(progress, [s0, e0], [0, 1]);
 
   return (
-    <div
-      className="spoke"
-      style={{ "--a": angle, "--fd": `${index * 0.4}s` } as React.CSSProperties}
-    >
-      <motion.div
-        className="spoke-bar"
-        style={reduced ? undefined : { scaleX }}
-      />
+    <div className="spoke" style={{ "--a": angle, "--fd": `${index * 0.4}s` } as React.CSSProperties}>
+      <motion.div className="spoke-bar" style={reduced ? undefined : { scaleX }} />
       <span className="dot" />
+      <span className="dot dot-2" />
     </div>
   );
 }
 
 export default function Engine() {
   const ref = useRef<HTMLElement>(null);
+  const stageRef = useRef<HTMLDivElement>(null);
   const reducedRaw = useReducedMotion();
   const reduced = !!reducedRaw;
   const scrollYProgress = useSectionProgress(ref);
   const [lit, setLit] = useState(reduced);
+  const [active, setActive] = useState<number | null>(null);
+  const [radius, setRadius] = useState(180);
+  const [coreOk, setCoreOk] = useState(true);
   useMotionValueEvent(scrollYProgress, "change", (v) => setLit(v > 0.82));
 
   const coreScale = useTransform(scrollYProgress, [0.04, 0.2], [0, 1]);
   const coreOpacity = useTransform(scrollYProgress, [0.04, 0.18], [0, 1]);
 
+  // measure --R (px) for the flip-to-center math
+  useEffect(() => {
+    const measure = () => {
+      const s = stageRef.current;
+      if (!s) return;
+      const n = parseFloat(getComputedStyle(s).getPropertyValue("--R"));
+      if (!Number.isNaN(n)) setRadius(n);
+    };
+    measure();
+    window.addEventListener("resize", measure);
+    return () => window.removeEventListener("resize", measure);
+  }, []);
+
+  // mouse-follow world rotation + parallax
+  const px = useMotionValue(0);
+  const py = useMotionValue(0);
+  const sx = useSpring(px, { stiffness: 70, damping: 15, mass: 0.7 });
+  const sy = useSpring(py, { stiffness: 70, damping: 15, mass: 0.7 });
+  const worldRotateY = useTransform(sx, [-1, 1], [-26, 26]);
+  const worldRotateX = useTransform(sy, [-1, 1], [20, -8]);
+  const worldX = useTransform(sx, [-1, 1], [-26, 26]);
+  const worldY = useTransform(sy, [-1, 1], [-18, 18]);
+
+  // freeze tilt to neutral while a card is zoomed in
+  useEffect(() => {
+    if (active !== null) {
+      px.set(0);
+      py.set(0);
+    }
+  }, [active, px, py]);
+
+  const onMove = (e: React.PointerEvent) => {
+    if (reduced || active !== null || e.pointerType === "touch") return;
+    px.set((e.clientX / window.innerWidth - 0.5) * 2);
+    py.set((e.clientY / window.innerHeight - 0.5) * 2);
+  };
+  const onLeave = () => {
+    px.set(0);
+    py.set(0);
+  };
+
+  const worldStyle = reduced
+    ? undefined
+    : { rotateX: worldRotateX, rotateY: worldRotateY, x: worldX, y: worldY };
+
+  const toggle = (i: number) => setActive((prev) => (prev === i ? null : i));
+
   return (
     <section ref={ref} className="engine-section" id="system" aria-label="Growth Engine Plus">
-      <div className={`engine-pin ${lit ? "lit-engine" : ""}`}>
+      <div
+        className={`engine-pin${lit ? " lit-engine" : ""}${active !== null ? " has-active" : ""}`}
+        onPointerMove={onMove}
+        onPointerLeave={onLeave}
+      >
         <div className="engine-head">
           <p className="eyebrow">// Die Growth Engine Plus</p>
           <h2>
@@ -276,8 +347,16 @@ export default function Engine() {
           <p>Scroll — und sieh, wie sich die Bausteine zu einem laufenden System fügen.</p>
         </div>
 
-        <div className="engine-stage">
-          <div className="engine-world">
+        <button
+          type="button"
+          className="engine-backdrop"
+          aria-label="Schliessen"
+          tabIndex={active !== null ? 0 : -1}
+          onClick={() => setActive(null)}
+        />
+
+        <div className="engine-stage" ref={stageRef}>
+          <motion.div className="engine-world" style={worldStyle}>
             {PIECES.map((p, i) => (
               <Spoke
                 key={`spoke-${p.name}`}
@@ -292,10 +371,32 @@ export default function Engine() {
               className="engine-core"
               style={reduced ? undefined : { scale: coreScale, opacity: coreOpacity }}
             >
-              <span className="core-label">
-                GROWTH
-                <br />
-                ENGINE
+              <span className="core-glow" />
+              {coreOk && (
+                <img
+                  src="/images/engine-core.png"
+                  alt=""
+                  className="core-img"
+                  decoding="async"
+                  onError={() => setCoreOk(false)}
+                />
+              )}
+              <span className="core-label">GROWTH ENGINE</span>
+              <span className="core-sparks">
+                {SPARKS.map((s, i) => (
+                  <span
+                    key={i}
+                    className="spark"
+                    style={
+                      {
+                        "--sx": `${s.x}px`,
+                        "--sy": `${s.y}px`,
+                        "--sd": `${s.d}s`,
+                        "--ss": s.s,
+                      } as React.CSSProperties
+                    }
+                  />
+                ))}
               </span>
             </motion.div>
 
@@ -306,12 +407,15 @@ export default function Engine() {
                 index={i}
                 progress={scrollYProgress}
                 reduced={reduced}
+                active={active === i}
+                radius={radius}
+                onToggle={toggle}
               />
             ))}
-          </div>
+          </motion.div>
         </div>
 
-        <p className="engine-tip">Tipp — tippe ein Teil an, um es umzudrehen</p>
+        <p className="engine-tip">Tipp — tippe ein Teil an, um es heranzuholen</p>
       </div>
     </section>
   );
