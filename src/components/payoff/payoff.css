@@ -2,8 +2,7 @@
   position: relative;
   padding-block: calc(var(--space-section) * 0.9);
   background:
-    radial-gradient(60% 80% at 85% 30%, rgba(191, 211, 231, 0.18), transparent 70%),
-    var(--paper);
+    radial-gradient(60% 80% at 85% 30%, rgba(191, 211, 231, 0.18), transparent 70%);
   overflow: hidden;
 }
 

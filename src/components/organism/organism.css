@@ -1,10 +1,7 @@
 .organism-section {
-  --o-bg: #04100f;
   position: relative;
   height: 380vh;
-  background:
-    radial-gradient(60% 50% at 50% 42%, #0a2422, var(--o-bg) 72%),
-    var(--o-bg);
+  background: transparent;
 }
 
 .organism-pin {
@@ -14,25 +11,6 @@
   display: grid;
   place-items: center;
   overflow: hidden;
-}
-/* morph blend into the light sections above + below */
-.organism-pin::before,
-.organism-pin::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  height: 20vh;
-  pointer-events: none;
-  z-index: 5;
-}
-.organism-pin::before {
-  top: 0;
-  background: linear-gradient(var(--bone), rgba(4, 16, 15, 0));
-}
-.organism-pin::after {
-  bottom: 0;
-  background: linear-gradient(rgba(4, 16, 15, 0), var(--bone));
 }
 
 .organism-head {

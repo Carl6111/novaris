@@ -1,0 +1,43 @@
+.scene-bg {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.scene-paper {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(90% 55% at 50% 0%, var(--bone-2), transparent 55%),
+    radial-gradient(70% 50% at 100% 100%, rgba(191, 211, 231, 0.16), transparent 60%),
+    linear-gradient(180deg, var(--bone-2), var(--bone) 42%, var(--bone-3));
+}
+
+/* faint living spine tying the scenes together */
+.scene-vein {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 1px;
+  transform: translateX(-50%);
+  background: linear-gradient(
+    180deg,
+    transparent,
+    rgba(0, 109, 119, 0.12) 14%,
+    rgba(0, 109, 119, 0.12) 86%,
+    transparent
+  );
+}
+
+.scene-dark {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  will-change: opacity;
+  background:
+    radial-gradient(62% 52% at 50% 44%, #0a2422, #04100f 74%),
+    #04100f;
+}

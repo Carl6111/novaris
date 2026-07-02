@@ -1,7 +1,7 @@
 .problems {
   position: relative;
   height: 520vh;
-  background: var(--bone);
+  background: transparent;
 }
 
 .problems-sticky {

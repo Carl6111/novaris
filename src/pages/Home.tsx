@@ -1,3 +1,4 @@
+import SceneBackground from "../components/scene/SceneBackground";
 import HeroScrub from "../components/hero/HeroScrub";
 import Problems from "../components/problems/Problems";
 import Payoff from "../components/payoff/Payoff";
@@ -9,6 +10,7 @@ import Cta from "../components/cta/Cta";
 export default function Home() {
   return (
     <>
+      <SceneBackground />
       <HeroScrub />
       <Problems />
       <Payoff />

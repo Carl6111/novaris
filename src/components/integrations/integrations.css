@@ -1,7 +1,6 @@
 .integrations {
-  background: var(--bone);
+  background: transparent;
   padding-block: clamp(3rem, 2rem + 3vw, 5rem);
-  border-top: 1px solid var(--border);
 }
 .integrations-label {
   text-align: center;

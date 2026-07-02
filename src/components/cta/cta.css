@@ -1,7 +1,6 @@
 .cta {
   position: relative;
   padding-block: calc(var(--space-section) * 1.2);
-  border-top: 1px solid var(--border);
   overflow: hidden;
 }
 
